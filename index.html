@@ -3,14 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Hope Creative | Private Digital Studio</title>
-  <meta name="description" content="Hope Creative is a luxury creative studio for branding, web design, print, and visual storytelling." />
-
+  <title>Hope Creative | Version Gallery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --navy: #000f28;
@@ -18,985 +14,244 @@
       --blue: #7998ea;
       --white: #fbf8ff;
       --mist: rgba(251,248,255,.72);
-      --soft: rgba(251,248,255,.48);
       --line: rgba(255,255,255,.14);
-      --glass: rgba(255,255,255,.078);
-      --shadow: 0 34px 110px rgba(0,0,0,.54);
-      --max: 1480px;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --display: "Perandory Semi Condensed", "Perandory", "Bodoni 72", "Didot", "Cormorant Garamond", Georgia, serif;
+      --display: "Perandory Semi Condensed", "Perandory", "Bodoni 72", "Didot", Georgia, serif;
       --script: "Herr Von Muellerhoff", cursive;
+      --sans: Inter, system-ui, sans-serif;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      background: var(--navy);
-      scroll-behavior: smooth;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
       min-height: 100vh;
-      overflow-x: hidden;
       color: var(--white);
       font-family: var(--sans);
       background:
-        radial-gradient(circle at 12% 18%, rgba(121,152,234,.24), transparent 33rem),
-        radial-gradient(circle at 90% 10%, rgba(215,161,199,.10), transparent 28rem),
-        radial-gradient(circle at 54% 92%, rgba(34,23,66,.92), transparent 44rem),
-        linear-gradient(135deg, #000f28 0%, #071730 44%, #221742 100%);
+        radial-gradient(circle at 18% 10%, rgba(121,152,234,.24), transparent 34rem),
+        radial-gradient(circle at 88% 16%, rgba(216,163,197,.12), transparent 30rem),
+        linear-gradient(135deg, #000f28, #071730 44%, #221742);
+      padding: 34px;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      opacity: .18;
-      background:
-        linear-gradient(rgba(255,255,255,.023) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.023) 1px, transparent 1px);
-      background-size: 86px 86px;
-      mask-image: radial-gradient(circle at 50% 24%, #000 0 38%, transparent 76%);
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; color: inherit; }
-
-    .grain {
-      position: fixed;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      opacity: .07;
-      mix-blend-mode: screen;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 260 260' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='.56'/%3E%3C/svg%3E");
-    }
-
-    .site {
-      position: relative;
-      z-index: 2;
-      min-height: 100vh;
-      display: grid;
-      grid-template-rows: auto 1fr;
-    }
-
-    .topbar {
-      width: min(var(--max), calc(100% - 34px));
-      margin: 16px auto 0;
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 10px 13px 10px 16px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(0,15,40,.60);
-      box-shadow: 0 24px 78px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.08);
-      backdrop-filter: blur(24px);
-    }
-
-    .brand-mini {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .seal {
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.16);
-      background:
-        radial-gradient(circle at 30% 18%, rgba(255,255,255,.44), transparent 24%),
-        linear-gradient(135deg, rgba(121,152,234,.26), rgba(34,23,66,.58));
-      box-shadow: 0 0 36px rgba(121,152,234,.18);
-      font-family: var(--script);
-      font-size: 3.2rem;
-      line-height: .4;
-    }
-
-    .brand-mini strong {
-      display: block;
-      font-family: var(--display);
-      font-size: .84rem;
-      letter-spacing: .24em;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    .brand-mini span:last-child {
-      display: block;
-      margin-top: 3px;
-      color: rgba(255,255,255,.48);
-      font-size: .58rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      font-weight: 900;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .nav-links a {
-      padding: 12px 13px;
-      border-radius: 999px;
-      color: rgba(255,255,255,.68);
-      font-size: .66rem;
-      font-weight: 900;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      transition: .25s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #fff;
-      background: rgba(255,255,255,.085);
-    }
-
-    .nav-cta {
-      min-height: 42px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 17px !important;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--blue), var(--violet));
-      box-shadow: 0 18px 48px rgba(121,152,234,.20);
-      color: #fff !important;
-    }
-
-    .experience {
-      width: min(var(--max), calc(100% - 34px));
+    .wrap {
+      max-width: 1260px;
       margin: 0 auto;
-      min-height: calc(100vh - 86px);
+    }
+
+    header {
+      min-height: 34vh;
       display: grid;
-      grid-template-columns: minmax(300px, .82fr) minmax(520px, 1.32fr) minmax(290px, .86fr);
-      gap: 18px;
-      align-items: stretch;
-      padding: 18px 0 22px;
-    }
-
-    .left-panel,
-    .right-panel,
-    .studio-frame {
-      border: 1px solid rgba(255,255,255,.14);
-      background:
-        radial-gradient(circle at 20% 0%, rgba(121,152,234,.16), transparent 22rem),
-        linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.034));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 20px 70px rgba(0,0,0,.20);
-    }
-
-    .left-panel,
-    .right-panel {
-      min-height: 650px;
-      border-radius: 34px;
-      padding: clamp(22px, 2.6vw, 34px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      align-content: center;
       gap: 22px;
-      overflow: hidden;
+      padding: 34px 0;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      color: rgba(251,248,255,.78);
-      font-size: .68rem;
-      letter-spacing: .34em;
-      text-transform: uppercase;
-      font-weight: 800;
-      margin-bottom: 22px;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 44px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--blue), transparent);
-    }
-
-    .hero-logo {
-      width: 100%;
-      margin: 0 0 22px -7px;
+    .logo {
       display: flex;
       align-items: baseline;
       line-height: .78;
       filter: drop-shadow(0 0 30px rgba(121,152,234,.22));
     }
 
-    .hero-logo .h {
-      flex: 0 0 auto;
+    .logo .h {
       font-family: var(--script);
-      font-size: clamp(7rem, 9vw, 11rem);
+      font-size: clamp(7rem, 13vw, 12rem);
       line-height: .34;
       margin-right: -.10em;
       transform: translateY(.04em);
-      z-index: 2;
     }
 
-    .hero-logo .word {
-      flex: 0 1 auto;
+    .logo .word {
       font-family: var(--display);
-      font-size: clamp(3.1rem, 4.6vw, 5.35rem);
+      font-size: clamp(3.2rem, 7vw, 6.4rem);
       text-transform: uppercase;
       letter-spacing: -.015em;
-      font-weight: 500;
       white-space: nowrap;
     }
 
-    .space { flex: 0 0 .18em; }
-
-    h1 {
-      font-family: var(--display);
-      font-size: clamp(2.85rem, 4.2vw, 4.9rem);
-      line-height: .89;
-      letter-spacing: -.056em;
-      font-weight: 500;
-      text-wrap: balance;
-    }
-
-    h1 span {
-      display: block;
-    }
-
-    .outline {
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(251,248,255,.86);
-      text-shadow: 0 0 50px rgba(121,152,234,.24);
-    }
-
-    .lead {
-      max-width: 560px;
-      margin-top: 20px;
-      color: var(--mist);
-      font-size: 1rem;
-      line-height: 1.68;
-    }
-
-    .actions {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-
-    .btn {
-      min-height: 52px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 22px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.065);
-      color: white;
-      font-size: .70rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      font-weight: 900;
-      transition: transform .25s ease, border-color .25s ease, background .25s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      border-color: rgba(255,255,255,.34);
-      background: rgba(255,255,255,.105);
-    }
-
-    .btn.primary {
-      border: 0;
-      background: linear-gradient(135deg, var(--blue), #5169bd 48%, var(--violet));
-      box-shadow: 0 25px 70px rgba(121,152,234,.27), inset 0 1px 0 rgba(255,255,255,.24);
-    }
-
-    .micro {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 26px;
-    }
-
-    .micro-card {
-      min-height: 104px;
-      padding: 15px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.052);
-    }
-
-    .micro-card span {
-      display: block;
-      color: var(--blue);
-      font-size: .60rem;
-      letter-spacing: .17em;
-      text-transform: uppercase;
-      font-weight: 900;
-      margin-bottom: 18px;
-    }
-
-    .micro-card p {
-      color: rgba(255,255,255,.68);
-      font-size: .83rem;
-      line-height: 1.42;
-    }
-
-    .studio-frame {
-      position: relative;
-      min-height: 650px;
-      border-radius: 38px;
-      overflow: hidden;
-      perspective: 1400px;
-      isolation: isolate;
-    }
-
-    .studio-frame::before {
-      content: "";
-      position: absolute;
-      inset: -20%;
-      background:
-        radial-gradient(circle at 50% 45%, rgba(121,152,234,.25), transparent 30%),
-        radial-gradient(circle at 50% 100%, rgba(34,23,66,.42), transparent 42%);
-      filter: blur(8px);
-      z-index: 0;
-    }
-
-    .studio-room {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      transform-style: preserve-3d;
-      transition: transform .25s ease-out;
-    }
-
-    .ceiling {
-      position: absolute;
-      left: -8%;
-      right: -8%;
-      top: -20%;
-      height: 46%;
-      transform: rotateX(-72deg);
-      transform-origin: bottom;
-      background:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
-        radial-gradient(ellipse at center, rgba(121,152,234,.12), transparent 68%);
-      background-size: 48px 48px, 48px 48px, auto;
-      border-bottom: 1px solid rgba(255,255,255,.11);
-      opacity: .74;
-    }
-
-    .floor {
-      position: absolute;
-      left: -11%;
-      right: -11%;
-      bottom: -25%;
-      height: 58%;
-      transform: rotateX(72deg);
-      transform-origin: top;
-      background:
-        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
-        radial-gradient(ellipse at center, rgba(121,152,234,.23), rgba(34,23,66,.08) 48%, transparent 73%);
-      background-size: 48px 48px, 48px 48px, auto;
-      border-top: 1px solid rgba(255,255,255,.13);
-      opacity: .86;
-    }
-
-    .back-wall {
-      position: absolute;
-      inset: 8% 12% 28%;
-      border-radius: 34px 34px 14px 14px;
-      border: 1px solid rgba(255,255,255,.13);
-      background:
-        radial-gradient(circle at 50% 36%, rgba(121,152,234,.18), transparent 36%),
-        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
-      box-shadow: inset 0 0 90px rgba(121,152,234,.06);
-    }
-
-    .wall-logo {
-      position: absolute;
-      top: 17%;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: baseline;
-      filter: drop-shadow(0 0 28px rgba(121,152,234,.22));
-      line-height: .75;
-      white-space: nowrap;
-    }
-
-    .wall-logo .h {
-      font-family: var(--script);
-      font-size: clamp(7rem, 9vw, 10rem);
-      margin-right: -.10em;
-    }
-
-    .wall-logo .word {
-      font-family: var(--display);
-      font-size: clamp(2.7rem, 3.7vw, 4.1rem);
-      text-transform: uppercase;
-      letter-spacing: -.01em;
-    }
-
-    .desk {
-      position: absolute;
-      left: 16%;
-      right: 16%;
-      bottom: 22%;
-      height: 82px;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,.16);
-      background:
-        linear-gradient(155deg, rgba(255,255,255,.16), rgba(255,255,255,.05)),
-        linear-gradient(180deg, rgba(0,15,40,.28), rgba(34,23,66,.62));
-      box-shadow: 0 28px 80px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.15);
-      backdrop-filter: blur(18px);
-    }
-
-    .desk::before {
-      content: "";
-      position: absolute;
-      left: 10%;
-      right: 10%;
-      top: -17px;
-      height: 34px;
-      border-radius: 999px;
-      background: radial-gradient(ellipse, rgba(121,152,234,.34), transparent 70%);
-      filter: blur(5px);
-    }
-
-    .work-frame {
-      position: absolute;
-      width: 23%;
-      height: 30%;
-      top: 38%;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.15);
-      background:
-        radial-gradient(circle at 32% 18%, rgba(255,255,255,.22), transparent 25%),
-        linear-gradient(150deg, rgba(255,255,255,.12), rgba(255,255,255,.035));
-      box-shadow: 0 22px 56px rgba(0,0,0,.28);
-      transition: .3s ease;
-    }
-
-    .work-frame:hover {
-      transform: translateY(-5px) scale(1.02);
-      border-color: rgba(121,152,234,.36);
-    }
-
-    .work-frame.one { left: 8%; transform: rotateY(20deg) rotateZ(-3deg); }
-    .work-frame.two { right: 8%; transform: rotateY(-20deg) rotateZ(3deg); }
-    .work-frame.three { left: 38%; top: 45%; width: 24%; height: 22%; transform: translateZ(40px); }
-
-    .studio-dock {
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 20px;
-      z-index: 12;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
-
-    .studio-dock button {
-      cursor: pointer;
-      padding: 12px 9px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,15,40,.30);
-      color: rgba(255,255,255,.72);
-      font-size: .60rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      font-weight: 900;
-      text-align: center;
-      backdrop-filter: blur(14px);
-      transition: .22s ease;
-    }
-
-    .studio-dock button:hover,
-    .studio-dock button.active {
-      background: rgba(121,152,234,.16);
-      color: white;
-      transform: translateY(-2px);
-      border-color: rgba(121,152,234,.28);
-    }
-
-    .right-panel {
-      position: relative;
+    .space {
+      width: .18em;
     }
 
     .kicker {
-      margin-bottom: 13px;
+      color: var(--blue);
+      font-size: .72rem;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    h1 {
+      font-family: var(--display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: .9;
+      letter-spacing: -.055em;
+      font-weight: 500;
+      max-width: 900px;
+    }
+
+    p {
+      color: var(--mist);
+      line-height: 1.7;
+      max-width: 720px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      padding: 18px 0 40px;
+    }
+
+    .card {
+      min-height: 240px;
+      color: inherit;
+      text-decoration: none;
+      padding: 24px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 86% 16%, rgba(121,152,234,.20), transparent 14rem),
+        linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.034));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 18px 54px rgba(0,0,0,.18);
+      transition: transform .25s ease, border-color .25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(121,152,234,.42);
+    }
+
+    .card span {
       color: var(--blue);
       font-size: .68rem;
-      letter-spacing: .30em;
+      letter-spacing: .18em;
       text-transform: uppercase;
       font-weight: 900;
     }
 
-    .room-title {
+    .card h2 {
       font-family: var(--display);
-      font-size: clamp(2.35rem, 3.4vw, 4.1rem);
-      line-height: .90;
-      letter-spacing: -.056em;
+      font-size: 2.1rem;
+      line-height: .95;
+      letter-spacing: -.045em;
       font-weight: 500;
-      text-wrap: balance;
     }
 
-    .room-copy {
-      margin-top: 18px;
-      color: var(--mist);
-      line-height: 1.68;
-      font-size: .96rem;
+    .card p {
+      font-size: .92rem;
     }
 
-    .info-stack {
-      display: grid;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .info-card {
-      min-height: 88px;
-      padding: 15px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.052);
-    }
-
-    .info-card span {
-      display: block;
-      color: var(--blue);
-      font-size: .60rem;
-      letter-spacing: .17em;
-      text-transform: uppercase;
-      font-weight: 900;
-      margin-bottom: 12px;
-    }
-
-    .info-card p {
-      color: rgba(255,255,255,.68);
-      font-size: .84rem;
-      line-height: 1.42;
-    }
-
-    .portfolio-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 9px;
-      margin-top: 22px;
-    }
-
-    .portfolio-thumb {
-      min-height: 108px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.12);
-      background:
-        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
-        radial-gradient(circle at 35% 25%, rgba(255,255,255,.14), transparent 7rem),
-        linear-gradient(135deg, rgba(0,15,40,.65), rgba(34,23,66,.82));
-      background-size: 24px 24px, 24px 24px, auto, auto;
-      display: grid;
-      place-items: center;
-      color: rgba(255,255,255,.42);
-      font-size: .55rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      font-weight: 900;
-    }
-
-    .contact-mini {
-      display: grid;
-      gap: 9px;
+    .card small {
       margin-top: auto;
-    }
-
-    .contact-mini a {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 13px 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 17px;
-      color: rgba(255,255,255,.82);
-      background: rgba(0,15,40,.25);
-      font-size: .86rem;
-    }
-
-    .contact-mini span {
-      color: var(--blue);
-      font-size: .62rem;
+      color: rgba(255,255,255,.86);
+      font-size: .72rem;
       letter-spacing: .14em;
       text-transform: uppercase;
       font-weight: 900;
     }
 
-    footer {
-      position: fixed;
-      left: 50%;
-      bottom: 10px;
-      z-index: 30;
-      transform: translateX(-50%);
-      color: rgba(255,255,255,.40);
-      font-size: .76rem;
-      letter-spacing: .08em;
-    }
-
-    @media (max-width: 1180px) {
-      .experience {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .left-panel,
-      .right-panel,
-      .studio-frame {
-        min-height: auto;
-      }
-
-      .studio-frame {
-        min-height: 610px;
-        order: -1;
-      }
-
-      footer {
-        position: static;
-        transform: none;
-        width: min(var(--max), calc(100% - 34px));
-        margin: 0 auto 24px;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .topbar,
-      .experience {
-        width: calc(100% - 28px);
-      }
-
-      .topbar {
-        margin-top: 12px;
-        min-height: 64px;
-      }
-
-      .brand-mini .text,
-      .nav-links a:not(.nav-cta) {
-        display: none;
-      }
-
-      .seal {
-        width: 44px;
-        height: 44px;
-        font-size: 3rem;
-      }
-
-      .experience {
-        padding-top: 14px;
-      }
-
-      .left-panel,
-      .right-panel {
-        padding: 21px;
-      }
-
-      .studio-frame {
-        min-height: 520px;
-        border-radius: 28px;
-      }
-
-      .hero-logo .h {
-        font-size: clamp(7rem, 27vw, 9rem);
-      }
-
-      .hero-logo .word {
-        font-size: clamp(2.55rem, 11vw, 3.85rem);
-      }
-
-      h1 {
-        font-size: clamp(2.85rem, 13vw, 4.25rem);
-      }
-
-      .micro,
-      .portfolio-strip {
-        grid-template-columns: 1fr;
-      }
-
-      .wall-logo .h {
-        font-size: 5.9rem;
-      }
-
-      .wall-logo .word {
-        font-size: 2rem;
-      }
-
-      .studio-dock {
-        grid-template-columns: repeat(2, 1fr);
-        left: 16px;
-        right: 16px;
-        bottom: 16px;
-      }
-
-      .desk {
-        left: 12%;
-        right: 12%;
-        height: 58px;
-      }
-
-      .work-frame {
-        height: 20%;
-        top: 44%;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-      }
+    @media (max-width: 920px) {
+      body { padding: 22px; }
+      .grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-
 <body>
-  <div class="grain" aria-hidden="true"></div>
-
-  <div class="site">
-    <header class="topbar">
-      <a class="brand-mini" href="#" aria-label="Hope Creative home">
-        <span class="seal">H</span>
-        <span class="text">
-          <strong>Hope Creative</strong>
-          <span>Private Studio</span>
-        </span>
-      </a>
-
-      <nav class="nav-links" aria-label="Studio navigation">
-        <a href="#" class="room-link active" data-room="brand">Brand</a>
-        <a href="#" class="room-link" data-room="web">Web</a>
-        <a href="#" class="room-link" data-room="portfolio">Work</a>
-        <a href="#" class="nav-cta room-link" data-room="contact">Begin</a>
-      </nav>
+  <div class="wrap">
+    <header>
+      <div class="kicker">Version Gallery</div>
+      <div class="logo" aria-label="Hope Creative">
+        <span class="h">H</span>
+        <span class="word">ope</span>
+        <span class="space"></span>
+        <span class="word">Creative</span>
+      </div>
+      <h1>Choose the studio direction.</h1>
+      <p>Open each version below to compare the different Hope Creative concepts live inside one GitHub Pages repository.</p>
     </header>
 
-    <main class="experience">
-      <section class="left-panel">
-        <div>
-          <div class="eyebrow">Enter the Studio</div>
+    <main class="grid">
+      
+    <a class="card" href="private-studio/">
+      <span>01</span>
+      <h2>Private Studio</h2>
+      <p>Wide single-screen creative study with interactive room/details panel.</p>
+      <small>Open version →</small>
+    </a>
+    
 
-          <div class="hero-logo" aria-label="Hope Creative logo">
-            <span class="h">H</span>
-            <span class="word">ope</span>
-            <span class="space"></span>
-            <span class="word">Creative</span>
-          </div>
+    <a class="card" href="studio-walkthrough/">
+      <span>02</span>
+      <h2>Studio Walkthrough</h2>
+      <p>A more literal studio entrance / portfolio wall concept.</p>
+      <small>Open version →</small>
+    </a>
+    
 
-          <h1>
-            <span>A Private</span>
-            <span class="outline">Creative</span>
-            <span>Study</span>
-          </h1>
+    <a class="card" href="concise/">
+      <span>03</span>
+      <h2>Concise Luxury</h2>
+      <p>Cleaner luxury landing page with less movement and fewer sections.</p>
+      <small>Open version →</small>
+    </a>
+    
 
-          <p class="lead">
-            Luxury branding, web design, print, and visual storytelling presented as one immersive studio —
-            everything visible, nothing buried.
-          </p>
+    <a class="card" href="showroom-portfolio/">
+      <span>04</span>
+      <h2>Showroom + Portfolio</h2>
+      <p>Digital showroom with portfolio and service sections.</p>
+      <small>Open version →</small>
+    </a>
+    
 
-          <div class="micro">
-            <div class="micro-card">
-              <span>01</span>
-              <p>Brand systems with editorial polish.</p>
-            </div>
-            <div class="micro-card">
-              <span>02</span>
-              <p>Web experiences with depth and flow.</p>
-            </div>
-            <div class="micro-card">
-              <span>03</span>
-              <p>Print and campaign pieces with cohesion.</p>
-            </div>
-            <div class="micro-card">
-              <span>04</span>
-              <p>Visual storytelling with cinematic energy.</p>
-            </div>
-          </div>
-        </div>
+    <a class="card" href="digital-showroom/">
+      <span>05</span>
+      <h2>Digital Showroom</h2>
+      <p>Glossy interactive service display inspired by a luxury digital retail wall.</p>
+      <small>Open version →</small>
+    </a>
+    
 
-        <div class="actions">
-          <a class="btn primary room-link" data-room="contact" href="#">Start a Project</a>
-          <a class="btn room-link" data-room="portfolio" href="#">View the Work Wall</a>
-        </div>
-      </section>
+    <a class="card" href="better-top-logo/">
+      <span>06</span>
+      <h2>Better Top + Logo</h2>
+      <p>Earlier version with refined nav and reference-style logo.</p>
+      <small>Open version →</small>
+    </a>
+    
 
-      <section class="studio-frame" aria-label="Interactive Hope Creative studio">
-        <div class="studio-room" id="studioRoom">
-          <div class="ceiling"></div>
-          <div class="back-wall">
-            <div class="wall-logo">
-              <span class="h">H</span>
-              <span class="word">ope</span>
-            </div>
-          </div>
-          <div class="floor"></div>
-          <div class="desk"></div>
-          <div class="work-frame one"></div>
-          <div class="work-frame two"></div>
-          <div class="work-frame three"></div>
+    <a class="card" href="luxury-3d/">
+      <span>07</span>
+      <h2>Luxury 3D</h2>
+      <p>Floating dimensional glass/chrome monogram direction.</p>
+      <small>Open version →</small>
+    </a>
+    
 
-          <div class="studio-dock">
-            <button class="room-link active" data-room="brand">Brand Room</button>
-            <button class="room-link" data-room="web">Web Studio</button>
-            <button class="room-link" data-room="portfolio">Work Wall</button>
-            <button class="room-link" data-room="contact">Project Desk</button>
-          </div>
-        </div>
-      </section>
+    <a class="card" href="lux-3d/">
+      <span>08</span>
+      <h2>Lux 3D Draft</h2>
+      <p>Earlier compact luxury 3D exploration.</p>
+      <small>Open version →</small>
+    </a>
+    
 
-      <aside class="right-panel">
-        <div>
-          <div class="kicker" id="roomKicker">Brand Room</div>
-          <h2 class="room-title" id="roomTitle">Identity systems that feel collected, not crowded.</h2>
-          <p class="room-copy" id="roomCopy">
-            Logo direction, color, typography, visual language, and the polished rules that make a brand feel intentional everywhere it appears.
-          </p>
-
-          <div class="info-stack" id="infoStack">
-            <div class="info-card">
-              <span>Includes</span>
-              <p>Logo suite, color palette, type pairing, brand marks, and direction.</p>
-            </div>
-            <div class="info-card">
-              <span>Best For</span>
-              <p>Founders and brands ready to look more established, refined, and memorable.</p>
-            </div>
-          </div>
-
-          <div class="portfolio-strip" id="portfolioStrip" aria-label="Portfolio preview thumbnails">
-            <div class="portfolio-thumb">Visual</div>
-            <div class="portfolio-thumb">Mockup</div>
-            <div class="portfolio-thumb">Case</div>
-          </div>
-        </div>
-
-        <div class="contact-mini">
-          <a href="mailto:info@hopeinprint.com?subject=Hope%20Creative%20Project%20Inquiry"><span>Email</span>info@hopeinprint.com</a>
-          <a href="tel:13238291937"><span>Phone</span>323-829-1937</a>
-          <a href="https://www.hopeinprint.com"><span>Web</span>hopeinprint.com</a>
-        </div>
-      </aside>
+    <a class="card" href="original/">
+      <span>09</span>
+      <h2>Original Draft</h2>
+      <p>First full luxury-futuristic website draft.</p>
+      <small>Open version →</small>
+    </a>
+    
     </main>
-
-    <footer>© <span id="year"></span> Hope Creative · Luxury Branding · Web · Print · Film</footer>
   </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const roomContent = {
-      brand: {
-        kicker: "Brand Room",
-        title: "Identity systems that feel collected, not crowded.",
-        copy: "Logo direction, color, typography, visual language, and the polished rules that make a brand feel intentional everywhere it appears.",
-        cards: [
-          ["Includes", "Logo suite, color palette, type pairing, brand marks, and direction."],
-          ["Best For", "Founders and brands ready to look more established, refined, and memorable."]
-        ],
-        thumbs: ["Logo", "Palette", "Guide"]
-      },
-      web: {
-        kicker: "Web Studio",
-        title: "A digital experience that feels like a room, not a template.",
-        copy: "Responsive website design with clean navigation, cinematic structure, premium spacing, and a user path that feels effortless.",
-        cards: [
-          ["Includes", "Homepages, service pages, landing pages, mobile styling, and launch direction."],
-          ["Best For", "Brands that need a site with presence, clarity, and conversion flow."]
-        ],
-        thumbs: ["Desktop", "Mobile", "Flow"]
-      },
-      portfolio: {
-        kicker: "Work Wall",
-        title: "A curated wall for websites, print, visuals, and brand worlds.",
-        copy: "A compact case-study area designed for screenshots, brand boards, print mockups, social campaigns, or video thumbnails.",
-        cards: [
-          ["Categories", "Brand Identity, Web Design, Print Design, Social Campaign, Film, Full System."],
-          ["Format", "Replace each frame with your strongest visuals and keep the gallery highly curated."]
-        ],
-        thumbs: ["Brand", "Web", "Print"]
-      },
-      contact: {
-        kicker: "Project Desk",
-        title: "Start with the spark. Build the whole world from there.",
-        copy: "Share the project, the feeling, the offer, and the audience. Hope Creative can shape the visual system from first concept to final polish.",
-        cards: [
-          ["Start Here", "Send a short project note with your goals, timeline, and the kind of presence you want."],
-          ["Next Step", "We map the visual direction, scope, and best creative path forward."]
-        ],
-        thumbs: ["Inquiry", "Scope", "Begin"]
-      }
-    };
-
-    const links = document.querySelectorAll(".room-link");
-    const roomKicker = document.getElementById("roomKicker");
-    const roomTitle = document.getElementById("roomTitle");
-    const roomCopy = document.getElementById("roomCopy");
-    const infoStack = document.getElementById("infoStack");
-    const portfolioStrip = document.getElementById("portfolioStrip");
-
-    function setRoom(room) {
-      const data = roomContent[room] || roomContent.brand;
-
-      roomKicker.textContent = data.kicker;
-      roomTitle.textContent = data.title;
-      roomCopy.textContent = data.copy;
-
-      infoStack.innerHTML = data.cards.map(([label, text]) => `
-        <div class="info-card">
-          <span>${label}</span>
-          <p>${text}</p>
-        </div>
-      `).join("");
-
-      portfolioStrip.innerHTML = data.thumbs.map(label => `<div class="portfolio-thumb">${label}</div>`).join("");
-
-      links.forEach(link => {
-        link.classList.toggle("active", link.dataset.room === room);
-      });
-    }
-
-    links.forEach(link => {
-      link.addEventListener("click", event => {
-        event.preventDefault();
-        setRoom(link.dataset.room);
-      });
-    });
-
-    const frame = document.querySelector(".studio-frame");
-    const room = document.getElementById("studioRoom");
-
-    frame.addEventListener("pointermove", event => {
-      if (window.matchMedia("(max-width: 760px)").matches) return;
-      const rect = frame.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width - .5) * 2;
-      const y = ((event.clientY - rect.top) / rect.height - .5) * 2;
-      room.style.transform = `rotateX(${y * -1.6}deg) rotateY(${x * 2.4}deg)`;
-    });
-
-    frame.addEventListener("pointerleave", () => {
-      room.style.transform = "";
-    });
-  </script>
 </body>
 </html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hope Creative | Luxury Design Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#000f28;--violet:#221742;--blue:#7998ea;--white:#fbf8ff;
+  --mist:rgba(251,248,255,.72);--soft:rgba(251,248,255,.46);
+  --line:rgba(255,255,255,.14);--shadow:0 34px 110px rgba(0,0,0,.52);
+  --max:1180px;--sans:Inter,system-ui,sans-serif;
+  --display:"Perandory Semi Condensed","Perandory","Bodoni 72","Didot","Cormorant Garamond",Georgia,serif;
+  --script:"Herr Von Muellerhoff",cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--navy)}
+body{
+  min-height:100vh;overflow-x:hidden;color:var(--white);font-family:var(--sans);
+  background:
+    radial-gradient(circle at 18% 8%,rgba(121,152,234,.22),transparent 32rem),
+    radial-gradient(circle at 82% 18%,rgba(216,163,197,.11),transparent 26rem),
+    radial-gradient(circle at 62% 78%,rgba(34,23,66,.88),transparent 42rem),
+    linear-gradient(135deg,#000f28 0%,#061630 44%,#221742 100%);
+}
+body:before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.20;
+  background:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+             linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size:82px 82px;mask-image:radial-gradient(circle at 50% 16%,#000 0 32%,transparent 72%);
+}
+a{color:inherit;text-decoration:none}.site{position:relative;z-index:2}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.075;mix-blend-mode:screen;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 260 260' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='.56'/%3E%3C/svg%3E")}
+.nav{
+  position:fixed;top:18px;left:50%;z-index:30;width:min(var(--max),calc(100% - 36px));min-height:70px;
+  transform:translateX(-50%);display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:10px 13px 10px 17px;border:1px solid var(--line);border-radius:999px;
+  background:rgba(0,15,40,.62);box-shadow:0 24px 78px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(24px)
+}
+.brand-mini{display:flex;align-items:center;gap:12px}.seal{width:48px;height:48px;display:grid;place-items:center;overflow:hidden;border-radius:50%;border:1px solid rgba(255,255,255,.16);background:radial-gradient(circle at 30% 18%,rgba(255,255,255,.44),transparent 24%),linear-gradient(135deg,rgba(121,152,234,.26),rgba(34,23,66,.58));box-shadow:0 0 36px rgba(121,152,234,.18);font-family:var(--script);font-size:3.35rem;line-height:.4}
+.brand-mini strong{display:block;font-family:var(--display);font-size:.88rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500}
+.brand-mini span:last-child{display:block;margin-top:3px;color:rgba(255,255,255,.48);font-size:.60rem;letter-spacing:.22em;text-transform:uppercase;font-weight:900}
+.nav-links{display:flex;align-items:center;gap:4px}.nav-links a{padding:12px 13px;border-radius:999px;color:rgba(255,255,255,.68);font-size:.68rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;transition:.25s ease}.nav-links a:hover{color:#fff;background:rgba(255,255,255,.085)}
+.nav-cta{min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 18px;border-radius:999px;background:linear-gradient(135deg,var(--blue),var(--violet));box-shadow:0 18px 48px rgba(121,152,234,.20);color:#fff!important}
+.hero{
+  width:min(var(--max),calc(100% - 36px));min-height:100svh;margin:0 auto;padding:130px 0 42px;
+  display:grid;grid-template-columns:minmax(0,.95fr) minmax(420px,1.05fr);gap:clamp(28px,5vw,62px);align-items:center
+}
+.copy{max-width:620px;min-width:0}.eyebrow{display:inline-flex;align-items:center;gap:15px;margin-bottom:22px;color:rgba(251,248,255,.78);font-size:.70rem;letter-spacing:.40em;text-transform:uppercase;font-weight:800}.eyebrow:before{content:"";width:58px;height:1px;background:linear-gradient(90deg,var(--blue),transparent)}
+.hero-logo{width:100%;max-width:640px;margin:0 0 24px -8px;display:flex;align-items:baseline;line-height:.78;filter:drop-shadow(0 0 30px rgba(121,152,234,.22));overflow:visible}.hero-logo .h{flex:0 0 auto;font-family:var(--script);font-size:clamp(7.6rem,13vw,12rem);line-height:.34;margin-right:-.10em;transform:translateY(.04em);z-index:2}.hero-logo .word{flex:0 1 auto;font-family:var(--display);font-size:clamp(3.65rem,7.15vw,6.55rem);text-transform:uppercase;letter-spacing:-.015em;font-weight:500;white-space:nowrap}.space{flex:0 0 .18em}
+h1{max-width:610px;font-family:var(--display);font-size:clamp(3.05rem,5.6vw,5.15rem);line-height:.89;letter-spacing:-.056em;font-weight:500;text-wrap:balance}h1 span{display:block}.outline{color:transparent;-webkit-text-stroke:1px rgba(251,248,255,.86);text-shadow:0 0 50px rgba(121,152,234,.24)}
+.lead{max-width:590px;margin:22px 0 28px;color:var(--mist);font-size:clamp(1rem,1.22vw,1.12rem);line-height:1.72}.actions{display:flex;flex-wrap:wrap;gap:13px;align-items:center}
+.btn{position:relative;min-height:54px;display:inline-flex;align-items:center;justify-content:center;overflow:hidden;padding:0 24px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.065);color:white;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:900;transition:transform .25s ease,border-color .25s ease,background .25s ease}.btn:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.34);background:rgba(255,255,255,.105)}.btn.primary{border:0;background:linear-gradient(135deg,var(--blue),#5169bd 48%,var(--violet));box-shadow:0 25px 70px rgba(121,152,234,.27),inset 0 1px 0 rgba(255,255,255,.24)}
+.showcase-wrap{min-width:0;position:relative;display:grid;place-items:center;perspective:1400px}.showcase-wrap:before{content:"";position:absolute;width:min(85vw,680px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(121,152,234,.22),transparent 54%);filter:blur(10px);z-index:-2}
+.showcase{width:min(100%,650px);aspect-ratio:1.38/1;position:relative;overflow:hidden;border-radius:34px;border:1px solid rgba(255,255,255,.18);background:radial-gradient(circle at 48% 34%,rgba(121,152,234,.18),transparent 32%),linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.035)),linear-gradient(180deg,rgba(0,15,40,.78),rgba(2,7,22,.96));box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.16);transform:rotateX(5deg) rotateY(-6deg);transform-style:preserve-3d;transition:transform .25s ease-out}.showcase:before{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.18),transparent 19%,transparent 74%,rgba(255,255,255,.055)),radial-gradient(circle at 30% 20%,rgba(255,255,255,.13),transparent 15rem)}
+.showcase-top{position:absolute;inset:0 0 auto;z-index:8;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-bottom:1px solid rgba(255,255,255,.10);background:rgba(0,15,40,.42);backdrop-filter:blur(16px)}.showcase-logo{display:flex;align-items:baseline;line-height:.75}.showcase-logo .h{font-family:var(--script);font-size:3.65rem;margin-right:-.08em}.showcase-logo .word{font-family:var(--display);font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;font-weight:500}.dots{display:flex;gap:8px}.dots span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 0 14px rgba(121,152,234,.55)}
+.showcase-stage{position:absolute;inset:62px 0 0;display:grid;grid-template-columns:1fr .78fr;gap:18px;align-items:center;padding:34px}.featured-card{position:relative;min-height:300px;border-radius:28px;border:1px solid rgba(255,255,255,.16);background:linear-gradient(155deg,rgba(255,255,255,.14),rgba(255,255,255,.04)),radial-gradient(circle at 35% 12%,rgba(121,152,234,.22),transparent 16rem);box-shadow:0 30px 90px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.15);overflow:hidden;display:grid;place-items:center}.featured-card:before{content:"";position:absolute;width:54%;aspect-ratio:1;border-radius:30px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(145deg,rgba(255,255,255,.44),rgba(121,152,234,.16) 20%,rgba(34,23,66,.72) 62%,rgba(255,255,255,.12)),radial-gradient(circle at 34% 18%,rgba(255,255,255,.72),transparent 18%);box-shadow:0 0 60px rgba(121,152,234,.28),inset 0 0 44px rgba(255,255,255,.07);transform:rotateX(62deg) rotateZ(45deg)}.featured-card:after{content:"FEATURED PORTFOLIO";position:absolute;bottom:22px;left:22px;color:rgba(255,255,255,.55);letter-spacing:.22em;font-size:.66rem;font-weight:900;text-transform:uppercase}
+.showcase-info{min-width:0}.showcase-info span{display:block;color:var(--blue);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:900;margin-bottom:24px}.showcase-info h2{font-family:var(--display);font-size:clamp(2.2rem,4.6vw,4.2rem);line-height:.88;letter-spacing:-.056em;font-weight:500;margin-bottom:16px}.showcase-info p{color:var(--mist);line-height:1.62;font-size:.94rem}.quick-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.tag{display:inline-flex;padding:8px 10px;border-radius:999px;border:1px solid rgba(121,152,234,.21);background:rgba(121,152,234,.11);color:rgba(255,255,255,.74);font-size:.66rem;letter-spacing:.11em;text-transform:uppercase;font-weight:900}
+.section{width:min(var(--max),calc(100% - 36px));margin:0 auto;padding:34px 0}.split-panel{display:grid;grid-template-columns:.82fr 1.18fr;gap:14px;align-items:stretch}.panel{border-radius:32px;border:1px solid rgba(255,255,255,.14);background:radial-gradient(circle at 18% 0%,rgba(121,152,234,.20),transparent 22rem),linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.034));box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 20px 70px rgba(0,0,0,.20);padding:clamp(24px,4vw,38px)}.kicker{margin-bottom:13px;color:var(--blue);font-size:.70rem;letter-spacing:.32em;text-transform:uppercase;font-weight:900}h2.section-title{font-family:var(--display);font-size:clamp(2.5rem,5vw,4.65rem);line-height:.89;letter-spacing:-.056em;font-weight:500;text-wrap:balance}.panel p{margin-top:18px;color:var(--mist);line-height:1.68}.service-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.mini{min-height:150px;padding:18px;border-radius:22px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.052)}.mini span{display:block;color:var(--blue);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;font-weight:900;margin-bottom:28px}.mini h3{font-family:var(--display);font-size:1.62rem;line-height:.95;letter-spacing:-.045em;font-weight:500;margin-bottom:8px}.mini p{margin:0;color:rgba(255,255,255,.66);line-height:1.46;font-size:.88rem}
+.portfolio-strip{display:grid;grid-template-columns:repeat(6,minmax(190px,1fr));gap:12px;overflow-x:auto;padding:2px 2px 16px;scrollbar-color:rgba(121,152,234,.55) rgba(255,255,255,.08)}.portfolio-card{min-height:260px;padding:14px;border-radius:25px;border:1px solid rgba(255,255,255,.13);background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.034)),radial-gradient(circle at 86% 16%,rgba(121,152,234,.18),transparent 13rem);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 18px 54px rgba(0,0,0,.18);transition:transform .28s ease,border-color .28s ease}.portfolio-card:hover{transform:translateY(-7px);border-color:rgba(121,152,234,.38)}.visual{height:125px;border-radius:18px;border:1px solid rgba(255,255,255,.12);margin-bottom:16px;background:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px),radial-gradient(circle at 35% 25%,rgba(255,255,255,.14),transparent 8rem),linear-gradient(135deg,rgba(0,15,40,.65),rgba(34,23,66,.82));background-size:28px 28px,28px 28px,auto,auto;display:grid;place-items:center;color:rgba(255,255,255,.43);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;font-weight:900}.portfolio-card span{display:block;color:var(--blue);font-size:.62rem;letter-spacing:.17em;text-transform:uppercase;font-weight:900;margin-bottom:12px}.portfolio-card h3{font-family:var(--display);font-size:1.55rem;line-height:.95;letter-spacing:-.045em;font-weight:500;margin-bottom:8px}.portfolio-card p{color:rgba(255,255,255,.66);line-height:1.45;font-size:.86rem}
+.contact{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;border-radius:32px;border:1px solid rgba(255,255,255,.14);background:radial-gradient(circle at 20% 0%,rgba(121,152,234,.23),transparent 22rem),linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.04));box-shadow:var(--shadow);padding:clamp(24px,4vw,36px)}.contact p{max-width:640px;color:var(--mist);line-height:1.68;margin-top:12px}.contact-links{min-width:282px;display:grid;gap:10px}.contact-links a{display:flex;justify-content:space-between;gap:16px;padding:14px 16px;border:1px solid rgba(255,255,255,.12);border-radius:18px;color:rgba(255,255,255,.82);background:rgba(0,15,40,.25);font-size:.90rem}.contact-links span{color:var(--blue);font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;font-weight:900}
+footer{width:min(var(--max),calc(100% - 36px));margin:0 auto;padding:16px 0 34px;display:flex;justify-content:space-between;gap:16px;color:rgba(255,255,255,.45);font-size:.84rem}.reveal{opacity:0;transform:translateY(18px);transition:opacity .72s ease,transform .72s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1040px){.brand-mini .text{display:none}.hero{grid-template-columns:1fr;min-height:auto;padding-top:116px}.showcase-wrap{order:-1}.showcase{width:min(100%,720px);transform:rotateX(3deg) rotateY(-3deg)}.split-panel,.contact{grid-template-columns:1fr}.contact-links{min-width:0}}
+@media(max-width:760px){.nav,.hero,.section,footer{width:calc(100% - 28px)}.nav{top:12px;min-height:64px}.seal{width:44px;height:44px;font-size:3rem}.nav-links a:not(.nav-cta){display:none}.hero{padding-top:94px;gap:20px}.showcase{max-width:430px;aspect-ratio:.92/1;border-radius:26px}.showcase-top{height:56px;padding:0 16px}.showcase-logo .h{font-size:3rem}.showcase-logo .word{font-size:.9rem}.showcase-stage{inset:56px 0 0;grid-template-columns:1fr;padding:20px}.featured-card{min-height:210px}.featured-card:before{width:46%}.showcase-info h2{font-size:2.25rem}.showcase-info p,.quick-links{display:none}.hero-logo{transform:scale(.96);transform-origin:left center}.hero-logo .h{font-size:clamp(7rem,27vw,9rem)}.hero-logo .word{font-size:clamp(2.55rem,11vw,3.85rem)}.eyebrow{gap:11px;font-size:.61rem;letter-spacing:.27em}.eyebrow:before{width:36px}h1{font-size:clamp(2.85rem,13vw,4.25rem)}.lead{font-size:.98rem}.actions .btn{width:100%}.service-list{grid-template-columns:1fr}.contact,.panel{padding:21px}footer{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="site">
+<header class="nav">
+  <a class="brand-mini" href="#top" aria-label="Hope Creative home">
+    <span class="seal">H</span>
+    <span class="text"><strong>Hope Creative</strong><span>Design Studio</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact" class="nav-cta">Start Project</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="copy reveal">
+    <div class="eyebrow">Branding · Web · Print · Film</div>
+    <div class="hero-logo" aria-label="Hope Creative logo">
+      <span class="h">H</span><span class="word">ope</span><span class="space"></span><span class="word">Creative</span>
+    </div>
+    <h1><span>Design</span><span class="outline">Beyond</span><span>Ordinary</span></h1>
+    <p class="lead">Luxury branding, web design, print, and visual storytelling for brands that want to feel unforgettable.</p>
+    <div class="actions"><a class="btn primary" href="#contact">Start a Project</a><a class="btn" href="#portfolio">View Portfolio</a></div>
+  </div>
+
+  <div class="showcase-wrap reveal" id="showcaseWrap">
+    <div class="showcase" id="showcase">
+      <div class="showcase-top">
+        <div class="showcase-logo"><span class="h">H</span><span class="word">ope Creative</span></div>
+        <div class="dots"><span></span><span></span><span></span></div>
+      </div>
+      <div class="showcase-stage">
+        <div class="featured-card"></div>
+        <div class="showcase-info">
+          <span>Featured Case Study</span>
+          <h2>Luxury brand systems with depth.</h2>
+          <p>A clean portfolio preview area for your strongest website, brand board, print design, or campaign visuals.</p>
+          <div class="quick-links"><span class="tag">Brand</span><span class="tag">Web</span><span class="tag">Print</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="split-panel">
+    <div class="panel reveal">
+      <div class="kicker">Capabilities</div>
+      <h2 class="section-title">Creative, but clean.</h2>
+      <p>A streamlined studio experience for identity, websites, print, campaigns, and visual storytelling — without making the page feel like a carnival ride.</p>
+    </div>
+    <div class="panel reveal">
+      <div class="service-list">
+        <article class="mini"><span>01</span><h3>Brand Identity</h3><p>Logos, color, type, and brand systems.</p></article>
+        <article class="mini"><span>02</span><h3>Web Design</h3><p>Editorial sites with clear user flow.</p></article>
+        <article class="mini"><span>03</span><h3>Print</h3><p>Cards, signage, mailers, and packaging.</p></article>
+        <article class="mini"><span>04</span><h3>Story</h3><p>Campaign visuals, social, film, and launch assets.</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="portfolio">
+  <div class="panel reveal">
+    <div class="kicker">Portfolio</div>
+    <h2 class="section-title">A concise case-study gallery.</h2>
+    <p>Six polished placeholders for your screenshots, brand boards, print mockups, video thumbnails, or social campaign visuals.</p>
+  </div>
+  <div class="portfolio-strip reveal" aria-label="Portfolio cards">
+    <article class="portfolio-card"><div class="visual">Add Visual</div><span>Brand Identity</span><h3>Identity Suite</h3><p>Logo, color, type, and brand details.</p></article>
+    <article class="portfolio-card"><div class="visual">Add Visual</div><span>Web Design</span><h3>Website</h3><p>Responsive site with premium structure.</p></article>
+    <article class="portfolio-card"><div class="visual">Add Visual</div><span>Print Design</span><h3>Print Set</h3><p>Cards, inserts, packaging, and signage.</p></article>
+    <article class="portfolio-card"><div class="visual">Add Visual</div><span>Social Campaign</span><h3>Campaign</h3><p>Launch graphics and social templates.</p></article>
+    <article class="portfolio-card"><div class="visual">Add Visual</div><span>Film / Visual</span><h3>Storytelling</h3><p>Cinematic visuals and motion direction.</p></article>
+    <article class="portfolio-card"><div class="visual">Add Visual</div><span>Full System</span><h3>Brand World</h3><p>Identity, web, print, and campaigns.</p></article>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="contact reveal">
+    <div><div class="kicker">Begin</div><h2 class="section-title">Let’s build the world around your brand.</h2><p>Start with identity, a website, campaign visuals, or the whole glowing constellation.</p></div>
+    <div class="contact-links">
+      <a href="mailto:info@hopeinprint.com?subject=Hope%20Creative%20Project%20Inquiry"><span>Email</span>info@hopeinprint.com</a>
+      <a href="tel:13238291937"><span>Phone</span>323-829-1937</a>
+      <a href="https://www.hopeinprint.com"><span>Web</span>hopeinprint.com</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><p>© <span id="year"></span> Hope Creative</p><p>Luxury Branding · Web · Print · Film</p></footer>
+</div>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add("visible")})},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+const wrap=document.getElementById("showcaseWrap");
+const showcase=document.getElementById("showcase");
+wrap.addEventListener("pointermove",(event)=>{
+  if(window.matchMedia("(max-width: 760px)").matches)return;
+  const rect=wrap.getBoundingClientRect();
+  const x=((event.clientX-rect.left)/rect.width-.5)*2;
+  const y=((event.clientY-rect.top)/rect.height-.5)*2;
+  showcase.style.transform=`rotateX(${5-y*1.8}deg) rotateY(${-6+x*2.8}deg)`;
+});
+wrap.addEventListener("pointerleave",()=>{showcase.style.transform=""});
+</script>
+</body>
+</html>

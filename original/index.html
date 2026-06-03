@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hope Creative | Design Studio</title>
+  <meta name="description" content="Hope Creative is a luxury design studio crafting brand identities, websites, print systems, and cinematic creative for brands that want to feel unforgettable." />
+  <style>
+    :root {
+      --ink: #fbf8ff;
+      --muted: rgba(251, 248, 255, .68);
+      --soft: rgba(251, 248, 255, .42);
+      --void: #060517;
+      --midnight: #0a0823;
+      --violet: #5c29d6;
+      --violet-2: #8c48ff;
+      --rose: #e0679b;
+      --blush: #ff9bc0;
+      --blue: #6f8fff;
+      --line: rgba(255, 255, 255, .14);
+      --glass: rgba(255, 255, 255, .075);
+      --glass-strong: rgba(255, 255, 255, .12);
+      --shadow: 0 30px 80px rgba(0, 0, 0, .45);
+      --radius: 28px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--void);
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 5%, rgba(224, 103, 155, .35), transparent 34rem),
+        radial-gradient(circle at 86% 14%, rgba(111, 143, 255, .32), transparent 34rem),
+        radial-gradient(circle at 48% 42%, rgba(92, 41, 214, .42), transparent 42rem),
+        linear-gradient(180deg, #090720 0%, #070515 48%, #04030c 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: .32;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: linear-gradient(to bottom, #000, transparent 86%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 50% 120%, rgba(224, 103, 155, .16), transparent 28rem),
+        linear-gradient(to bottom, transparent, rgba(0, 0, 0, .34));
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      opacity: .11;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='.55'/%3E%3C/svg%3E");
+      mix-blend-mode: screen;
+    }
+
+    .site {
+      position: relative;
+      z-index: 2;
+    }
+
+    .nav {
+      width: min(var(--max), calc(100% - 40px));
+      position: fixed;
+      left: 50%;
+      top: 18px;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px 14px 18px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 999px;
+      background: rgba(6, 5, 23, .58);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 60px rgba(0,0,0,.22);
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 20%, #fff, transparent 18%),
+        conic-gradient(from 120deg, var(--rose), var(--violet-2), var(--blue), var(--rose));
+      box-shadow: 0 0 38px rgba(224,103,155,.42);
+      position: relative;
+    }
+
+    .mark::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 50%;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,.72);
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 11px 14px;
+      border-radius: 999px;
+      transition: .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+      background: rgba(255,255,255,.09);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, rgba(224,103,155,.9), rgba(92,41,214,.95));
+      color: #fff !important;
+      box-shadow: 0 15px 40px rgba(92,41,214,.28);
+    }
+
+    .mobile-menu {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 0;
+      color: white;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      cursor: pointer;
+    }
+
+    .mobile-menu span {
+      display: block;
+      width: 18px;
+      height: 1px;
+      margin: 5px auto;
+      background: currentColor;
+      transition: .25s ease;
+    }
+
+    .hero {
+      width: min(var(--max), calc(100% - 40px));
+      min-height: 100svh;
+      margin: 0 auto;
+      padding: 150px 0 80px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(330px, .94fr);
+      align-items: center;
+      gap: 42px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--blush);
+      letter-spacing: .38em;
+      text-transform: uppercase;
+      font-size: .76rem;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 70px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--rose), transparent);
+    }
+
+    h1 {
+      max-width: 810px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(4.1rem, 10vw, 9.8rem);
+      line-height: .83;
+      letter-spacing: -.075em;
+      font-weight: 500;
+      margin-bottom: 28px;
+      text-wrap: balance;
+    }
+
+    h1 em {
+      display: block;
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,.88);
+      text-shadow: 0 0 40px rgba(224,103,155,.2);
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.24rem);
+      line-height: 1.82;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      color: white;
+      background: rgba(255,255,255,.07);
+      overflow: hidden;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: .78rem;
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.32);
+      background: rgba(255,255,255,.105);
+    }
+
+    .btn-primary {
+      border: 0;
+      background: linear-gradient(135deg, rgba(224,103,155,1), rgba(92,41,214,1) 58%, rgba(111,143,255,.85));
+      box-shadow: 0 24px 70px rgba(92, 41, 214, .34);
+    }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent, rgba(255,255,255,.26), transparent);
+      transform: translateX(-110%);
+      transition: transform .7s ease;
+    }
+
+    .btn-primary:hover::after {
+      transform: translateX(110%);
+    }
+
+    .tiny-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      color: rgba(255,255,255,.58);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .tiny-link::before {
+      content: "";
+      width: 52px;
+      height: 1px;
+      background: rgba(255,255,255,.35);
+    }
+
+    .orb-wrap {
+      position: relative;
+      min-height: 620px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    #orbCanvas {
+      width: min(100%, 590px);
+      height: min(78vw, 590px);
+      min-height: 420px;
+      filter: drop-shadow(0 0 90px rgba(92,41,214,.32));
+    }
+
+    .orb-glow {
+      position: absolute;
+      width: min(76vw, 510px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(92,41,214,.44), rgba(224,103,155,.14) 40%, transparent 68%);
+      filter: blur(12px);
+      z-index: -2;
+    }
+
+    .orbit {
+      position: absolute;
+      width: min(78vw, 560px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 155, 192, .25);
+      border-radius: 50%;
+      transform: rotateX(66deg) rotateZ(-28deg);
+      box-shadow: 0 0 46px rgba(224,103,155,.12);
+      animation: spin 20s linear infinite;
+      z-index: -1;
+    }
+
+    .orbit.two {
+      width: min(72vw, 470px);
+      transform: rotateX(68deg) rotateZ(34deg);
+      border-color: rgba(111,143,255,.22);
+      animation-duration: 28s;
+      animation-direction: reverse;
+    }
+
+    @keyframes spin {
+      to { rotate: 360deg; }
+    }
+
+    .stat-card {
+      position: absolute;
+      right: 0;
+      bottom: 64px;
+      width: min(290px, 80%);
+      padding: 20px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.045));
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card span {
+      display: block;
+      color: var(--blush);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: .7rem;
+      margin-bottom: 10px;
+    }
+
+    .stat-card strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: -.05em;
+    }
+
+    .section {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 110px 0;
+      position: relative;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 38px;
+      align-items: end;
+      margin-bottom: 44px;
+    }
+
+    .kicker {
+      color: var(--blush);
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      font-size: .72rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.8rem, 6vw, 5.9rem);
+      line-height: .92;
+      letter-spacing: -.065em;
+      font-weight: 500;
+      text-wrap: balance;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      line-height: 1.86;
+      font-size: 1.07rem;
+      max-width: 630px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      min-height: 340px;
+      padding: 28px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(160deg, rgba(255,255,255,.105), rgba(255,255,255,.04)),
+        radial-gradient(circle at 25% 0%, rgba(224,103,155,.18), transparent 22rem);
+      box-shadow: 0 18px 70px rgba(0,0,0,.18);
+      overflow: hidden;
+      transition: transform .3s ease, border-color .3s ease, background .3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255,255,255,.28);
+      background:
+        linear-gradient(160deg, rgba(255,255,255,.14), rgba(255,255,255,.055)),
+        radial-gradient(circle at 25% 0%, rgba(224,103,155,.25), transparent 22rem);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 210px;
+      aspect-ratio: 1;
+      right: -82px;
+      bottom: -82px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.12);
+      background: radial-gradient(circle, rgba(111,143,255,.18), transparent 70%);
+    }
+
+    .card-number {
+      color: rgba(255,255,255,.34);
+      letter-spacing: .22em;
+      font-size: .77rem;
+      font-weight: 800;
+      margin-bottom: 34px;
+    }
+
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.05rem;
+      font-weight: 500;
+      letter-spacing: -.04em;
+      margin-bottom: 18px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.74;
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 26px;
+      display: grid;
+      gap: 11px;
+      color: rgba(255,255,255,.72);
+      font-size: .94rem;
+    }
+
+    .card li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blush);
+      box-shadow: 0 0 18px rgba(255,155,192,.75);
+      flex: 0 0 auto;
+    }
+
+    .marquee {
+      border-block: 1px solid rgba(255,255,255,.11);
+      padding: 22px 0;
+      overflow: hidden;
+      background: rgba(255,255,255,.035);
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: scroll 26s linear infinite;
+    }
+
+    .marquee span {
+      display: inline-flex;
+      align-items: center;
+      gap: 22px;
+      margin-right: 22px;
+      color: rgba(255,255,255,.62);
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      font-size: .82rem;
+      white-space: nowrap;
+    }
+
+    .marquee span::after {
+      content: "✦";
+      color: var(--blush);
+      letter-spacing: 0;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .showcase {
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .feature-panel {
+      min-height: 620px;
+      border-radius: 34px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 70% 20%, rgba(224,103,155,.26), transparent 28rem),
+        radial-gradient(circle at 20% 70%, rgba(111,143,255,.2), transparent 24rem),
+        linear-gradient(150deg, rgba(255,255,255,.1), rgba(255,255,255,.04));
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-panel::before {
+      content: "";
+      position: absolute;
+      inset: 42px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 28px;
+      background:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at 50% 50%, #000, transparent 76%);
+    }
+
+    .feature-panel::after {
+      content: "";
+      position: absolute;
+      width: 460px;
+      height: 180px;
+      left: 13%;
+      top: 30%;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 50%;
+      transform: rotate(-16deg);
+      box-shadow:
+        0 0 70px rgba(92,41,214,.22),
+        inset 0 0 80px rgba(224,103,155,.11);
+    }
+
+    .panel-content {
+      position: absolute;
+      inset: auto 42px 42px 42px;
+      z-index: 2;
+    }
+
+    .panel-tag {
+      display: inline-flex;
+      margin-bottom: 20px;
+      padding: 9px 13px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 999px;
+      color: var(--blush);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: .68rem;
+      font-weight: 800;
+      background: rgba(0,0,0,.16);
+      backdrop-filter: blur(14px);
+    }
+
+    .panel-content h3 {
+      font-size: clamp(2.7rem, 4vw, 4.7rem);
+      line-height: .92;
+      max-width: 600px;
+      margin-bottom: 18px;
+    }
+
+    .panel-content p {
+      color: var(--muted);
+      max-width: 570px;
+      line-height: 1.8;
+    }
+
+    .work-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .work-item {
+      min-height: 194px;
+      padding: 25px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(140deg, rgba(255,255,255,.095), rgba(255,255,255,.035)),
+        radial-gradient(circle at 90% 20%, rgba(92,41,214,.22), transparent 18rem);
+      transition: .25s ease;
+    }
+
+    .work-item:hover {
+      transform: translateX(6px);
+      border-color: rgba(255,255,255,.28);
+    }
+
+    .work-item span {
+      display: block;
+      color: rgba(255,255,255,.36);
+      font-size: .74rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      font-weight: 800;
+    }
+
+    .work-item h3 {
+      font-size: 1.72rem;
+      margin-bottom: 12px;
+    }
+
+    .work-item p {
+      color: var(--muted);
+      line-height: 1.66;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      counter-reset: step;
+    }
+
+    .step {
+      min-height: 285px;
+      padding: 24px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.052);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      display: block;
+      color: var(--blush);
+      letter-spacing: .2em;
+      font-size: .74rem;
+      font-weight: 800;
+      margin-bottom: 58px;
+    }
+
+    .step::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 1px;
+      top: 54px;
+      left: 72px;
+      background: linear-gradient(90deg, rgba(255,155,192,.5), transparent);
+    }
+
+    .step h3 {
+      font-size: 1.6rem;
+    }
+
+    .step p {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: .98rem;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .about-card {
+      border-radius: 34px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 45% 25%, rgba(224,103,155,.25), transparent 20rem),
+        linear-gradient(155deg, rgba(255,255,255,.095), rgba(255,255,255,.04));
+      padding: 36px;
+      box-shadow: var(--shadow);
+      min-height: 460px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -90px -120px auto;
+      width: 330px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.12);
+      background: radial-gradient(circle, rgba(111,143,255,.23), transparent 70%);
+    }
+
+    .about-card p {
+      color: var(--muted);
+      line-height: 1.86;
+      font-size: 1.05rem;
+      margin-top: 24px;
+      max-width: 580px;
+    }
+
+    .signature-word {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.2rem, 7vw, 6.7rem);
+      line-height: .86;
+      letter-spacing: -.07em;
+      margin-top: 90px;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .mini {
+      padding: 26px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.052);
+      min-height: 223px;
+    }
+
+    .mini strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.3rem;
+      font-weight: 500;
+      letter-spacing: -.05em;
+      margin-bottom: 14px;
+    }
+
+    .mini p {
+      color: var(--muted);
+      line-height: 1.66;
+    }
+
+    .contact {
+      padding-bottom: 60px;
+    }
+
+    .contact-panel {
+      min-height: 520px;
+      border-radius: 38px;
+      border: 1px solid rgba(255,255,255,.15);
+      background:
+        radial-gradient(circle at 22% 0%, rgba(224,103,155,.35), transparent 30rem),
+        radial-gradient(circle at 100% 70%, rgba(111,143,255,.28), transparent 32rem),
+        linear-gradient(150deg, rgba(255,255,255,.12), rgba(255,255,255,.045));
+      box-shadow: var(--shadow);
+      padding: clamp(30px, 6vw, 68px);
+      display: grid;
+      grid-template-columns: 1fr .78fr;
+      gap: 40px;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .contact-panel::before {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,.1);
+      pointer-events: none;
+    }
+
+    .contact-panel h2 {
+      max-width: 730px;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+      line-height: 1.86;
+      font-size: 1.1rem;
+      max-width: 620px;
+      margin: 24px 0 34px;
+    }
+
+    .contact-card {
+      position: relative;
+      z-index: 2;
+      padding: 26px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(0,0,0,.2);
+      backdrop-filter: blur(18px);
+    }
+
+    .contact-row {
+      display: grid;
+      gap: 7px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .contact-row:last-child {
+      border-bottom: 0;
+    }
+
+    .contact-row span {
+      color: var(--blush);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: .68rem;
+      font-weight: 800;
+    }
+
+    .contact-row a {
+      color: white;
+      font-size: 1.05rem;
+    }
+
+    footer {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.48);
+      font-size: .9rem;
+    }
+
+    .cursor-dot {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: var(--blush);
+      mix-blend-mode: screen;
+      z-index: 50;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 24px rgba(255,155,192,.7);
+      opacity: 0;
+      transition: opacity .2s ease;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        top: 12px;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 74px;
+        left: 20px;
+        right: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: 24px;
+        background: rgba(6, 5, 23, .92);
+        backdrop-filter: blur(22px);
+      }
+
+      .nav.open .nav-links {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 14px 16px;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 132px;
+      }
+
+      .orb-wrap {
+        min-height: 470px;
+        order: -1;
+        opacity: .88;
+      }
+
+      .stat-card {
+        right: 14px;
+        bottom: 12px;
+      }
+
+      .section-head,
+      .showcase,
+      .about,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-panel {
+        min-height: 540px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav,
+      .hero,
+      .section,
+      footer {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .brand-mark {
+        letter-spacing: .18em;
+        font-size: .68rem;
+      }
+
+      .brand-mark span {
+        max-width: 172px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .hero {
+        padding-top: 118px;
+        min-height: auto;
+        gap: 22px;
+      }
+
+      .orb-wrap {
+        min-height: 350px;
+      }
+
+      #orbCanvas {
+        min-height: 330px;
+      }
+
+      .orbit,
+      .orbit.two {
+        width: 320px;
+      }
+
+      .eyebrow {
+        font-size: .66rem;
+        gap: 12px;
+        letter-spacing: .26em;
+      }
+
+      .eyebrow::before {
+        width: 42px;
+      }
+
+      h1 {
+        font-size: clamp(3.8rem, 17vw, 5.8rem);
+      }
+
+      .hero-copy {
+        font-size: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .tiny-link {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      h2 {
+        font-size: clamp(2.55rem, 13vw, 4.2rem);
+      }
+
+      .card,
+      .about-card,
+      .mini,
+      .work-item,
+      .step {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      .process-grid,
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-panel {
+        min-height: 500px;
+        border-radius: 28px;
+      }
+
+      .feature-panel::before {
+        inset: 24px;
+      }
+
+      .panel-content {
+        inset: auto 24px 28px 24px;
+      }
+
+      .contact-panel {
+        border-radius: 28px;
+        padding: 28px 22px;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cursor-dot {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="noise"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <div class="site">
+    <header class="nav" id="nav">
+      <a class="brand-mark" href="#top" aria-label="Hope Creative home">
+        <span class="mark"></span>
+        <span>Hope Creative</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#studio">Studio</a>
+        <a href="#contact" class="nav-cta">Start a Project</a>
+      </nav>
+
+      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-content reveal">
+          <div class="eyebrow">Branding · Web · Print · Film</div>
+          <h1>Design <em>Beyond</em> Ordinary</h1>
+          <p class="hero-copy">
+            Hope Creative builds elegant, future-facing brand worlds — identities, websites,
+            print systems, and cinematic visuals designed to feel intentional, luminous, and unforgettable.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#work">View Our Work</a>
+            <a class="tiny-link" href="#studio">Our Studio</a>
+          </div>
+        </div>
+
+        <div class="orb-wrap reveal" aria-hidden="true">
+          <div class="orb-glow"></div>
+          <div class="orbit"></div>
+          <div class="orbit two"></div>
+          <canvas id="orbCanvas"></canvas>
+          <div class="stat-card">
+            <span>Studio Focus</span>
+            <strong>Full<br />Spectrum</strong>
+          </div>
+        </div>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Brand Identity</span>
+          <span>Luxury Web Design</span>
+          <span>Print Systems</span>
+          <span>Creative Direction</span>
+          <span>Motion & Film</span>
+          <span>Visual Storytelling</span>
+          <span>Brand Identity</span>
+          <span>Luxury Web Design</span>
+          <span>Print Systems</span>
+          <span>Creative Direction</span>
+          <span>Motion & Film</span>
+          <span>Visual Storytelling</span>
+        </div>
+      </div>
+
+      <section class="section" id="services">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">What We Create</div>
+            <h2>Built for brands with a pulse.</h2>
+          </div>
+          <p class="section-intro">
+            Not template-flat. Not “cute enough.” This is layered design with strategy under the hood:
+            beautiful from across the room, functional when your clients get close.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-number">01 / Identity</div>
+            <h3>Brand Systems</h3>
+            <p>Visual identities that feel alive — logos, color worlds, type direction, brand rules, and the tiny details that make a company feel expensive.</p>
+            <ul>
+              <li>Logo suites</li>
+              <li>Color and typography</li>
+              <li>Brand guidelines</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-number">02 / Digital</div>
+            <h3>Web Experiences</h3>
+            <p>High-end websites with clear structure, smooth movement, intentional calls-to-action, and enough atmosphere to make people stay.</p>
+            <ul>
+              <li>Responsive web design</li>
+              <li>Landing pages</li>
+              <li>E-commerce styling</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-number">03 / Tangible</div>
+            <h3>Print & Campaigns</h3>
+            <p>Packaging, cards, signage, catalogs, launch graphics, and campaign systems that bring your digital world into the real one.</p>
+            <ul>
+              <li>Print collateral</li>
+              <li>Social campaigns</li>
+              <li>Launch assets</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="work">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Selected Direction</div>
+            <h2>Luxury, but with electricity.</h2>
+          </div>
+          <p class="section-intro">
+            A studio style rooted in deep midnight blue, violet, rose, cinematic gradients,
+            crisp serif typography, glass surfaces, and gentle futuristic motion.
+          </p>
+        </div>
+
+        <div class="showcase">
+          <div class="feature-panel reveal">
+            <div class="panel-content">
+              <span class="panel-tag">Signature Look</span>
+              <h3>Celestial depth. Editorial clarity. Modern glow.</h3>
+              <p>
+                The Hope Creative world feels polished without going cold — refined type, generous spacing,
+                futuristic geometry, and a little rose-colored magic around the edges.
+              </p>
+            </div>
+          </div>
+
+          <div class="work-list">
+            <article class="work-item reveal">
+              <span>Brand World</span>
+              <h3>Identity that expands</h3>
+              <p>From primary logo to social graphics, every visual piece should feel like it came from the same beautiful universe.</p>
+            </article>
+
+            <article class="work-item reveal">
+              <span>Website System</span>
+              <h3>Designed to convert</h3>
+              <p>Clear pathways, strong CTAs, mobile-first sections, and movement that adds mood without making the site heavy.</p>
+            </article>
+
+            <article class="work-item reveal">
+              <span>Campaign Layer</span>
+              <h3>Print meets digital</h3>
+              <p>Launch graphics, postcards, packaging, signage, ads, and content templates — all tuned to the same frequency.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="process">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">How It Works</div>
+            <h2>The process, made clean.</h2>
+          </div>
+          <p class="section-intro">
+            A luxury project should never feel chaotic behind the curtain. Each phase is designed to move from clarity to concept to polished launch.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="step reveal">
+            <h3>Discover</h3>
+            <p>We map the heart of the brand: audience, offer, tone, visuals, must-haves, and the feeling we want people to remember.</p>
+          </article>
+          <article class="step reveal">
+            <h3>Design</h3>
+            <p>We shape the visual system — identity, layout direction, color, typography, and the first high-impact creative concepts.</p>
+          </article>
+          <article class="step reveal">
+            <h3>Refine</h3>
+            <p>We polish the details, tighten the hierarchy, simplify what feels cluttered, and elevate anything that still feels too ordinary.</p>
+          </article>
+          <article class="step reveal">
+            <h3>Launch</h3>
+            <p>We package the assets, prep the website or campaign, and send your brand into the world looking luminous and ready.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="studio">
+        <div class="about">
+          <div class="about-card reveal">
+            <div class="kicker">The Studio</div>
+            <h2>Small studio. Big atmosphere.</h2>
+            <p>
+              Hope Creative is for founders, artists, shops, ministries, and brands who want their presence to feel
+              deeply considered — not just pretty, but meaningful, strategic, and unmistakably theirs.
+            </p>
+            <div class="signature-word">Hope<br />Creative</div>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini reveal">
+              <strong>01</strong>
+              <p>Elegant design direction with a soft-but-powerful visual voice.</p>
+            </div>
+            <div class="mini reveal">
+              <strong>02</strong>
+              <p>Full-spectrum creative: web, identity, print, campaigns, and visual storytelling.</p>
+            </div>
+            <div class="mini reveal">
+              <strong>03</strong>
+              <p>Built for mobile, polished for desktop, and structured for real humans.</p>
+            </div>
+            <div class="mini reveal">
+              <strong>04</strong>
+              <p>Atmospheric, intentional, and future-facing without losing warmth.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="contact-panel reveal">
+          <div>
+            <div class="kicker">Begin</div>
+            <h2>Ready to make the ordinary look embarrassed?</h2>
+            <p>
+              Tell us what you’re building. We’ll help shape the brand world, website, and visuals around it —
+              with clarity, elegance, and a little cosmic sparkle.
+            </p>
+            <a class="btn btn-primary" href="mailto:info@hopeinprint.com?subject=Project%20Inquiry%20for%20Hope%20Creative">Start a Project</a>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-row">
+              <span>Email</span>
+              <a href="mailto:info@hopeinprint.com">info@hopeinprint.com</a>
+            </div>
+            <div class="contact-row">
+              <span>Phone</span>
+              <a href="tel:13238291937">323-829-1937</a>
+            </div>
+            <div class="contact-row">
+              <span>Web</span>
+              <a href="https://www.hopeinprint.com">www.hopeinprint.com</a>
+            </div>
+            <div class="contact-row">
+              <span>Studio</span>
+              <a href="#top">Los Angeles · Remote Worldwide</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> Hope Creative. All rights reserved.</p>
+      <p>Branding · Web · Print · Film</p>
+    </footer>
+  </div>
+
+  <script>
+    const nav = document.getElementById("nav");
+    const mobileMenu = document.getElementById("mobileMenu");
+    mobileMenu.addEventListener("click", () => nav.classList.toggle("open"));
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => nav.classList.remove("open"));
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const dot = document.querySelector(".cursor-dot");
+    window.addEventListener("pointermove", (e) => {
+      dot.style.opacity = "1";
+      dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: .14 });
+
+    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+    const canvas = document.getElementById("orbCanvas");
+    const ctx = canvas.getContext("2d");
+    let w, h, dpr;
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      dpr = window.devicePixelRatio || 1;
+      w = rect.width;
+      h = rect.height;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+
+    const points = [];
+    const rows = 30;
+    const cols = 76;
+
+    for (let i = 0; i < rows; i++) {
+      const theta = (i / rows) * Math.PI * 2;
+      for (let j = 0; j < cols; j++) {
+        const phi = (j / cols) * Math.PI * 2;
+        points.push({ theta, phi });
+      }
+    }
+
+    function rotateY(p, a) {
+      const cos = Math.cos(a);
+      const sin = Math.sin(a);
+      return { x: p.x * cos - p.z * sin, y: p.y, z: p.x * sin + p.z * cos };
+    }
+
+    function rotateX(p, a) {
+      const cos = Math.cos(a);
+      const sin = Math.sin(a);
+      return { x: p.x, y: p.y * cos - p.z * sin, z: p.y * sin + p.z * cos };
+    }
+
+    function draw(time) {
+      const t = time * 0.00035;
+      ctx.clearRect(0, 0, w, h);
+
+      const cx = w / 2;
+      const cy = h / 2;
+      const R = Math.min(w, h) * 0.26;
+      const r = Math.min(w, h) * 0.105;
+      const perspective = Math.min(w, h) * 1.7;
+
+      const gradient = ctx.createRadialGradient(cx, cy, 10, cx, cy, Math.min(w,h) * .52);
+      gradient.addColorStop(0, "rgba(255, 155, 192, .22)");
+      gradient.addColorStop(.48, "rgba(92, 41, 214, .09)");
+      gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, w, h);
+
+      const projected = points.map(({ theta, phi }) => {
+        let x = (R + r * Math.cos(theta)) * Math.cos(phi);
+        let y = (R + r * Math.cos(theta)) * Math.sin(phi);
+        let z = r * Math.sin(theta);
+
+        let p = rotateX({ x, y, z }, 1.06 + Math.sin(t) * .08);
+        p = rotateY(p, t * 1.7);
+        p = rotateX(p, Math.sin(t * .72) * .22);
+
+        const scale = perspective / (perspective + p.z + 220);
+        return {
+          x: cx + p.x * scale,
+          y: cy + p.y * scale,
+          z: p.z,
+          scale,
+          alpha: Math.max(.06, Math.min(.78, (p.z + r) / (r * 2) + .18))
+        };
+      });
+
+      for (let i = 0; i < rows; i++) {
+        ctx.beginPath();
+        for (let j = 0; j < cols; j++) {
+          const p = projected[i * cols + j];
+          if (j === 0) ctx.moveTo(p.x, p.y);
+          else ctx.lineTo(p.x, p.y);
+        }
+        ctx.closePath();
+        ctx.strokeStyle = `rgba(255, 155, 192, ${0.035 + i / rows * .022})`;
+        ctx.lineWidth = .75;
+        ctx.stroke();
+      }
+
+      for (let j = 0; j < cols; j += 2) {
+        ctx.beginPath();
+        for (let i = 0; i < rows; i++) {
+          const p = projected[i * cols + j];
+          if (i === 0) ctx.moveTo(p.x, p.y);
+          else ctx.lineTo(p.x, p.y);
+        }
+        ctx.closePath();
+        ctx.strokeStyle = "rgba(111, 143, 255, .045)";
+        ctx.lineWidth = .65;
+        ctx.stroke();
+      }
+
+      projected
+        .filter((_, idx) => idx % 19 === 0)
+        .forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, Math.max(.45, p.scale * 1.3), 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 245, 255, ${p.alpha * .48})`;
+          ctx.fill();
+        });
+
+      const sparkles = [
+        { x: cx + Math.cos(t * 5) * R * 1.08, y: cy + Math.sin(t * 3.3) * R * .54 },
+        { x: cx + Math.cos(t * 4.1 + 2) * R * .72, y: cy + Math.sin(t * 4.8 + 1) * R * .9 },
+        { x: cx + Math.cos(t * 3.5 + 4) * R * 1.2, y: cy + Math.sin(t * 5.2 + 3) * R * .42 }
+      ];
+
+      sparkles.forEach((s, i) => {
+        const pulse = .55 + Math.sin(time * .004 + i) * .35;
+        ctx.save();
+        ctx.translate(s.x, s.y);
+        ctx.rotate(t * 8 + i);
+        ctx.strokeStyle = `rgba(255, 155, 192, ${pulse})`;
+        ctx.lineWidth = 1.4;
+        ctx.beginPath();
+        ctx.moveTo(-10, 0);
+        ctx.lineTo(10, 0);
+        ctx.moveTo(0, -10);
+        ctx.lineTo(0, 10);
+        ctx.stroke();
+        ctx.restore();
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    requestAnimationFrame(draw);
+  </script>
+</body>
+</html>

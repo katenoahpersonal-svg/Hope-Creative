@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Hope Creative | Enter the Studio</title>
+  <meta name="description" content="Hope Creative is a luxury creative studio for branding, web design, print, and visual storytelling." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #000f28;
+      --violet: #221742;
+      --blue: #7998ea;
+      --white: #fbf8ff;
+      --mist: rgba(251, 248, 255, .72);
+      --soft: rgba(251, 248, 255, .48);
+      --line: rgba(255, 255, 255, .14);
+      --glass: rgba(255, 255, 255, .075);
+      --blush: #d7a1c7;
+      --shadow: 0 34px 110px rgba(0, 0, 0, .54);
+      --max: 1200px;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --display: "Perandory Semi Condensed", "Perandory", "Bodoni 72", "Didot", "Cormorant Garamond", Georgia, serif;
+      --script: "Herr Von Muellerhoff", cursive;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; background: var(--navy); }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--white);
+      font-family: var(--sans);
+      background:
+        radial-gradient(circle at 18% 10%, rgba(121, 152, 234, .24), transparent 34rem),
+        radial-gradient(circle at 88% 16%, rgba(215, 161, 199, .13), transparent 28rem),
+        radial-gradient(circle at 52% 88%, rgba(34, 23, 66, .92), transparent 44rem),
+        linear-gradient(135deg, #000f28 0%, #071730 44%, #221742 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: .18;
+      background:
+        linear-gradient(rgba(255,255,255,.023) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.023) 1px, transparent 1px);
+      background-size: 84px 84px;
+      mask-image: radial-gradient(circle at 50% 18%, #000 0 34%, transparent 74%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: .075;
+      mix-blend-mode: screen;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 260 260' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='.56'/%3E%3C/svg%3E");
+    }
+
+    .site {
+      position: relative;
+      z-index: 2;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      z-index: 40;
+      width: min(var(--max), calc(100% - 36px));
+      min-height: 70px;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 14px 10px 17px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(0, 15, 40, .62);
+      box-shadow: 0 24px 78px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.08);
+      backdrop-filter: blur(24px);
+    }
+
+    .brand-mini {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .seal {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.16);
+      background:
+        radial-gradient(circle at 30% 18%, rgba(255,255,255,.44), transparent 24%),
+        linear-gradient(135deg, rgba(121,152,234,.26), rgba(34,23,66,.58));
+      box-shadow: 0 0 36px rgba(121,152,234,.18);
+      font-family: var(--script);
+      font-size: 3.35rem;
+      line-height: .4;
+    }
+
+    .brand-mini strong {
+      display: block;
+      font-family: var(--display);
+      font-size: .88rem;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .brand-mini span:last-child {
+      display: block;
+      margin-top: 3px;
+      color: rgba(255,255,255,.48);
+      font-size: .60rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      padding: 12px 13px;
+      border-radius: 999px;
+      color: rgba(255,255,255,.68);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      transition: .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+      background: rgba(255,255,255,.085);
+    }
+
+    .nav-cta {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px !important;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      box-shadow: 0 18px 48px rgba(121,152,234,.20);
+      color: #fff !important;
+    }
+
+    .hero {
+      width: min(var(--max), calc(100% - 36px));
+      min-height: 100svh;
+      margin: 0 auto;
+      padding: 132px 0 44px;
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(480px, 1.14fr);
+      gap: clamp(30px, 5vw, 70px);
+      align-items: center;
+    }
+
+    .copy {
+      max-width: 610px;
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+      color: rgba(251,248,255,.78);
+      font-size: .70rem;
+      letter-spacing: .40em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 58px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--blue), transparent);
+    }
+
+    .hero-logo {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 0 24px -8px;
+      display: flex;
+      align-items: baseline;
+      line-height: .78;
+      filter: drop-shadow(0 0 30px rgba(121,152,234,.22));
+    }
+
+    .hero-logo .h {
+      flex: 0 0 auto;
+      font-family: var(--script);
+      font-size: clamp(7.6rem, 13vw, 12rem);
+      line-height: .34;
+      margin-right: -.10em;
+      transform: translateY(.04em);
+      z-index: 2;
+    }
+
+    .hero-logo .word {
+      flex: 0 1 auto;
+      font-family: var(--display);
+      font-size: clamp(3.65rem, 7.15vw, 6.55rem);
+      text-transform: uppercase;
+      letter-spacing: -.015em;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .space { flex: 0 0 .18em; }
+
+    h1 {
+      max-width: 610px;
+      font-family: var(--display);
+      font-size: clamp(3.05rem, 5.6vw, 5.15rem);
+      line-height: .89;
+      letter-spacing: -.056em;
+      font-weight: 500;
+      text-wrap: balance;
+    }
+
+    h1 span { display: block; }
+
+    .outline {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(251,248,255,.86);
+      text-shadow: 0 0 50px rgba(121,152,234,.24);
+    }
+
+    .lead {
+      max-width: 590px;
+      margin: 22px 0 28px;
+      color: var(--mist);
+      font-size: clamp(1rem, 1.22vw, 1.12rem);
+      line-height: 1.72;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      align-items: center;
+    }
+
+    .btn {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.065);
+      color: white;
+      font-size: .72rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 900;
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.34);
+      background: rgba(255,255,255,.105);
+    }
+
+    .btn.primary {
+      border: 0;
+      background: linear-gradient(135deg, var(--blue), #5169bd 48%, var(--violet));
+      box-shadow: 0 25px 70px rgba(121,152,234,.27), inset 0 1px 0 rgba(255,255,255,.24);
+    }
+
+    .studio-wrap {
+      min-width: 0;
+      position: relative;
+      display: grid;
+      place-items: center;
+      perspective: 1400px;
+      isolation: isolate;
+    }
+
+    .studio-wrap::before {
+      content: "";
+      position: absolute;
+      width: min(88vw, 720px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(121,152,234,.22), transparent 56%);
+      filter: blur(10px);
+      z-index: -2;
+    }
+
+    .studio {
+      width: min(100%, 680px);
+      aspect-ratio: 1.28 / 1;
+      position: relative;
+      overflow: hidden;
+      border-radius: 38px;
+      border: 1px solid rgba(255,255,255,.18);
+      background:
+        radial-gradient(circle at 50% 38%, rgba(121,152,234,.20), transparent 33%),
+        linear-gradient(145deg, rgba(255,255,255,.105), rgba(255,255,255,.035)),
+        linear-gradient(180deg, rgba(0,15,40,.78), rgba(2,7,22,.97));
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.16);
+      transform: rotateX(5deg) rotateY(-6deg);
+      transform-style: preserve-3d;
+      transition: transform .25s ease-out;
+    }
+
+    .studio::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      pointer-events: none;
+      background:
+        linear-gradient(115deg, rgba(255,255,255,.18), transparent 19%, transparent 74%, rgba(255,255,255,.055)),
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.13), transparent 15rem);
+    }
+
+    .studio-sign {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 66px;
+      z-index: 12;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,15,40,.42);
+      backdrop-filter: blur(16px);
+    }
+
+    .studio-logo {
+      display: flex;
+      align-items: baseline;
+      line-height: .75;
+    }
+
+    .studio-logo .h {
+      font-family: var(--script);
+      font-size: 3.8rem;
+      margin-right: -.08em;
+    }
+
+    .studio-logo .word {
+      font-family: var(--display);
+      font-size: 1.05rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .open-pill {
+      color: rgba(255,255,255,.62);
+      font-size: .62rem;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .room {
+      position: absolute;
+      inset: 66px 0 0;
+      transform-style: preserve-3d;
+    }
+
+    .back-wall {
+      position: absolute;
+      inset: 8% 16% 26%;
+      border-radius: 28px 28px 10px 10px;
+      border: 1px solid rgba(255,255,255,.13);
+      background:
+        radial-gradient(circle at 50% 36%, rgba(121,152,234,.18), transparent 36%),
+        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+      box-shadow: inset 0 0 70px rgba(121,152,234,.06);
+    }
+
+    .wall-logo {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: baseline;
+      filter: drop-shadow(0 0 28px rgba(121,152,234,.22));
+      line-height: .75;
+    }
+
+    .wall-logo .h {
+      font-family: var(--script);
+      font-size: 7.5rem;
+      margin-right: -.10em;
+    }
+
+    .wall-logo .word {
+      font-family: var(--display);
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: -.01em;
+    }
+
+    .floor {
+      position: absolute;
+      left: -12%;
+      right: -12%;
+      bottom: -22%;
+      height: 52%;
+      transform: rotateX(72deg);
+      transform-origin: top;
+      background:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        radial-gradient(ellipse at center, rgba(121,152,234,.22), rgba(34,23,66,.08) 48%, transparent 73%);
+      background-size: 44px 44px, 44px 44px, auto;
+      border-top: 1px solid rgba(255,255,255,.12);
+      opacity: .84;
+    }
+
+    .desk {
+      position: absolute;
+      left: 17%;
+      right: 17%;
+      bottom: 22%;
+      height: 76px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.16);
+      background:
+        linear-gradient(155deg, rgba(255,255,255,.16), rgba(255,255,255,.05)),
+        linear-gradient(180deg, rgba(0,15,40,.28), rgba(34,23,66,.62));
+      box-shadow: 0 28px 80px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.15);
+      backdrop-filter: blur(18px);
+    }
+
+    .portfolio-piece {
+      position: absolute;
+      width: 23%;
+      height: 28%;
+      top: 40%;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.15);
+      background:
+        radial-gradient(circle at 32% 18%, rgba(255,255,255,.22), transparent 25%),
+        linear-gradient(150deg, rgba(255,255,255,.12), rgba(255,255,255,.035));
+      box-shadow: 0 22px 56px rgba(0,0,0,.28);
+    }
+
+    .portfolio-piece.one { left: 11%; transform: rotateY(18deg) rotateZ(-3deg); }
+    .portfolio-piece.two { right: 11%; transform: rotateY(-18deg) rotateZ(3deg); }
+
+    .room-labels {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 20px;
+      z-index: 13;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .room-labels a {
+      padding: 12px 10px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,15,40,.28);
+      color: rgba(255,255,255,.72);
+      font-size: .62rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      font-weight: 900;
+      text-align: center;
+      backdrop-filter: blur(14px);
+      transition: .22s ease;
+    }
+
+    .room-labels a:hover {
+      background: rgba(121,152,234,.16);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .section {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+      padding: 36px 0;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .panel {
+      border-radius: 32px;
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(121,152,234,.20), transparent 22rem),
+        linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.034));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 20px 70px rgba(0,0,0,.20);
+      padding: clamp(24px, 4vw, 38px);
+    }
+
+    .kicker {
+      margin-bottom: 13px;
+      color: var(--blue);
+      font-size: .70rem;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    h2 {
+      font-family: var(--display);
+      font-size: clamp(2.5rem, 5vw, 4.65rem);
+      line-height: .89;
+      letter-spacing: -.056em;
+      font-weight: 500;
+      text-wrap: balance;
+    }
+
+    .panel p,
+    .contact p {
+      margin-top: 18px;
+      color: var(--mist);
+      line-height: 1.68;
+    }
+
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .mini {
+      min-height: 150px;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.052);
+    }
+
+    .mini span {
+      display: block;
+      color: var(--blue);
+      font-size: .64rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 28px;
+    }
+
+    .mini h3,
+    .portfolio-card h3 {
+      font-family: var(--display);
+      font-size: 1.62rem;
+      line-height: .95;
+      letter-spacing: -.045em;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .mini p,
+    .portfolio-card p {
+      margin: 0;
+      color: rgba(255,255,255,.66);
+      line-height: 1.46;
+      font-size: .88rem;
+    }
+
+    .portfolio-strip {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(190px, 1fr));
+      gap: 12px;
+      overflow-x: auto;
+      padding: 2px 2px 16px;
+      scrollbar-color: rgba(121,152,234,.55) rgba(255,255,255,.08);
+    }
+
+    .portfolio-card {
+      min-height: 260px;
+      padding: 14px;
+      border-radius: 25px;
+      border: 1px solid rgba(255,255,255,.13);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.034)),
+        radial-gradient(circle at 86% 16%, rgba(121,152,234,.18), transparent 13rem);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 18px 54px rgba(0,0,0,.18);
+      transition: transform .28s ease, border-color .28s ease;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(121,152,234,.38);
+    }
+
+    .visual {
+      height: 125px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      margin-bottom: 16px;
+      background:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,.14), transparent 8rem),
+        linear-gradient(135deg, rgba(0,15,40,.65), rgba(34,23,66,.82));
+      background-size: 28px 28px, 28px 28px, auto, auto;
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,.43);
+      font-size: .62rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .portfolio-card span {
+      display: block;
+      color: var(--blue);
+      font-size: .62rem;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+      border-radius: 32px;
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(121,152,234,.23), transparent 22rem),
+        linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      padding: clamp(24px, 4vw, 36px);
+    }
+
+    .contact-links {
+      min-width: 282px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-links a {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      color: rgba(255,255,255,.82);
+      background: rgba(0,15,40,.25);
+      font-size: .90rem;
+    }
+
+    .contact-links span {
+      color: var(--blue);
+      font-size: .67rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    footer {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+      padding: 16px 0 34px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: rgba(255,255,255,.45);
+      font-size: .84rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .72s ease, transform .72s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1040px) {
+      .brand-mini .text { display: none; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 116px;
+      }
+
+      .studio-wrap {
+        order: -1;
+      }
+
+      .studio {
+        width: min(100%, 720px);
+        transform: rotateX(3deg) rotateY(-3deg);
+      }
+
+      .split,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-links {
+        min-width: 0;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar,
+      .hero,
+      .section,
+      footer {
+        width: calc(100% - 28px);
+      }
+
+      .topbar {
+        top: 12px;
+        min-height: 64px;
+      }
+
+      .seal {
+        width: 44px;
+        height: 44px;
+        font-size: 3rem;
+      }
+
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 94px;
+        gap: 20px;
+      }
+
+      .studio {
+        max-width: 430px;
+        aspect-ratio: .92 / 1;
+        border-radius: 26px;
+      }
+
+      .studio-sign {
+        height: 56px;
+        padding: 0 16px;
+      }
+
+      .studio-logo .h { font-size: 3rem; }
+      .studio-logo .word { font-size: .9rem; }
+
+      .room {
+        inset: 56px 0 0;
+      }
+
+      .back-wall {
+        inset: 8% 11% 31%;
+      }
+
+      .wall-logo .h { font-size: 5.7rem; }
+      .wall-logo .word { font-size: 2rem; }
+
+      .desk {
+        left: 14%;
+        right: 14%;
+        bottom: 25%;
+        height: 58px;
+      }
+
+      .portfolio-piece {
+        height: 20%;
+        top: 44%;
+      }
+
+      .room-labels {
+        grid-template-columns: repeat(2, 1fr);
+        bottom: 16px;
+        left: 16px;
+        right: 16px;
+      }
+
+      .hero-logo {
+        transform: scale(.96);
+        transform-origin: left center;
+      }
+
+      .hero-logo .h {
+        font-size: clamp(7rem, 27vw, 9rem);
+      }
+
+      .hero-logo .word {
+        font-size: clamp(2.55rem, 11vw, 3.85rem);
+      }
+
+      .eyebrow {
+        gap: 11px;
+        font-size: .61rem;
+        letter-spacing: .27em;
+      }
+
+      .eyebrow::before { width: 36px; }
+
+      h1 {
+        font-size: clamp(2.85rem, 13vw, 4.25rem);
+      }
+
+      .lead { font-size: .98rem; }
+
+      .actions .btn {
+        width: 100%;
+      }
+
+      .room-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact,
+      .panel {
+        padding: 21px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="site">
+    <header class="topbar">
+      <a class="brand-mini" href="#top" aria-label="Hope Creative home">
+        <span class="seal">H</span>
+        <span class="text">
+          <strong>Hope Creative</strong>
+          <span>Design Studio</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#rooms">Rooms</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact" class="nav-cta">Enter Studio</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="copy reveal">
+          <div class="eyebrow">Welcome to the Studio</div>
+
+          <div class="hero-logo" aria-label="Hope Creative logo">
+            <span class="h">H</span>
+            <span class="word">ope</span>
+            <span class="space"></span>
+            <span class="word">Creative</span>
+          </div>
+
+          <h1>
+            <span>Step Into</span>
+            <span class="outline">A Brand</span>
+            <span>World</span>
+          </h1>
+
+          <p class="lead">
+            A luxury creative studio for branding, web design, print, and visual storytelling —
+            designed to feel like entering a polished, cinematic atelier.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="#rooms">Tour the Studio</a>
+            <a class="btn" href="#portfolio">View Portfolio</a>
+          </div>
+        </div>
+
+        <div class="studio-wrap reveal" id="studioWrap" aria-label="Interactive Hope Creative studio preview">
+          <div class="studio" id="studio">
+            <div class="studio-sign">
+              <div class="studio-logo">
+                <span class="h">H</span>
+                <span class="word">ope Creative</span>
+              </div>
+              <span class="open-pill">Studio Open</span>
+            </div>
+
+            <div class="room">
+              <div class="back-wall">
+                <div class="wall-logo">
+                  <span class="h">H</span>
+                  <span class="word">ope</span>
+                </div>
+              </div>
+              <div class="floor"></div>
+              <div class="desk"></div>
+              <div class="portfolio-piece one"></div>
+              <div class="portfolio-piece two"></div>
+
+              <div class="room-labels">
+                <a href="#rooms">Brand Room</a>
+                <a href="#rooms">Web Lab</a>
+                <a href="#portfolio">Portfolio Wall</a>
+                <a href="#contact">Project Desk</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="rooms">
+        <div class="split">
+          <div class="panel reveal">
+            <div class="kicker">Studio Rooms</div>
+            <h2>Less webpage. More walkthrough.</h2>
+            <p>
+              The site is now built like a tiny creative studio: a front room, service rooms,
+              a portfolio wall, and a project desk — immersive, but still clean.
+            </p>
+          </div>
+
+          <div class="panel reveal">
+            <div class="room-grid">
+              <article class="mini">
+                <span>01</span>
+                <h3>Brand Room</h3>
+                <p>Logos, color, type, and complete identity systems.</p>
+              </article>
+              <article class="mini">
+                <span>02</span>
+                <h3>Web Lab</h3>
+                <p>Editorial websites with clean flow and depth.</p>
+              </article>
+              <article class="mini">
+                <span>03</span>
+                <h3>Print Table</h3>
+                <p>Cards, packaging, signage, mailers, and launch pieces.</p>
+              </article>
+              <article class="mini">
+                <span>04</span>
+                <h3>Story Bay</h3>
+                <p>Campaign visuals, social direction, film, and motion.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="portfolio">
+        <div class="panel reveal">
+          <div class="kicker">Portfolio Wall</div>
+          <h2>Replace these frames with real work.</h2>
+          <p>
+            Keep the gallery horizontal and curated so it feels like a studio wall,
+            not a crowded portfolio dump.
+          </p>
+        </div>
+
+        <div class="portfolio-strip reveal" aria-label="Portfolio cards">
+          <article class="portfolio-card">
+            <div class="visual">Add Visual</div>
+            <span>Brand Identity</span>
+            <h3>Identity Suite</h3>
+            <p>Logo, color, type, and brand details.</p>
+          </article>
+          <article class="portfolio-card">
+            <div class="visual">Add Visual</div>
+            <span>Web Design</span>
+            <h3>Website</h3>
+            <p>Responsive site with premium structure.</p>
+          </article>
+          <article class="portfolio-card">
+            <div class="visual">Add Visual</div>
+            <span>Print Design</span>
+            <h3>Print Set</h3>
+            <p>Cards, inserts, packaging, and signage.</p>
+          </article>
+          <article class="portfolio-card">
+            <div class="visual">Add Visual</div>
+            <span>Social Campaign</span>
+            <h3>Campaign</h3>
+            <p>Launch graphics and social templates.</p>
+          </article>
+          <article class="portfolio-card">
+            <div class="visual">Add Visual</div>
+            <span>Film / Visual</span>
+            <h3>Storytelling</h3>
+            <p>Cinematic visuals and motion direction.</p>
+          </article>
+          <article class="portfolio-card">
+            <div class="visual">Add Visual</div>
+            <span>Full System</span>
+            <h3>Brand World</h3>
+            <p>Identity, web, print, and campaigns.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="contact reveal">
+          <div>
+            <div class="kicker">Project Desk</div>
+            <h2>Let’s build the world around your brand.</h2>
+            <p>
+              Start with identity, a website, campaign visuals, or the whole glowing constellation.
+            </p>
+          </div>
+
+          <div class="contact-links">
+            <a href="mailto:info@hopeinprint.com?subject=Hope%20Creative%20Project%20Inquiry"><span>Email</span>info@hopeinprint.com</a>
+            <a href="tel:13238291937"><span>Phone</span>323-829-1937</a>
+            <a href="https://www.hopeinprint.com"><span>Web</span>hopeinprint.com</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> Hope Creative</p>
+      <p>Luxury Branding · Web · Print · Film</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: .12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    const wrap = document.getElementById("studioWrap");
+    const studio = document.getElementById("studio");
+
+    wrap.addEventListener("pointermove", (event) => {
+      if (window.matchMedia("(max-width: 760px)").matches) return;
+      const rect = wrap.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width - .5) * 2;
+      const y = ((event.clientY - rect.top) / rect.height - .5) * 2;
+      studio.style.transform = `rotateX(${5 - y * 1.8}deg) rotateY(${-6 + x * 2.8}deg)`;
+    });
+
+    wrap.addEventListener("pointerleave", () => {
+      studio.style.transform = "";
+    });
+  </script>
+</body>
+</html>
